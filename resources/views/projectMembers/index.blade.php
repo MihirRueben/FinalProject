@@ -21,16 +21,17 @@
                         <div class="mb-6 border-b border-gray-300 pb-4">
                             <!-- Research Grant Title -->
                             <h3 class="text-lg font-medium mb-2">
-                                <a href="{{ route('researchGrants.show', $grant->id) }}" class="hover:text-indigo-500 text-white">
+                                <a href="{{ route('researchGrants.show', $grant->id) }}" class="hover:text-indigo-500 text-black">
                                     {{ $grant->project_title }}
                                 </a>
                             </h3>
 
                             <!-- Display the Project Leader -->
                             <div class="mb-4">
-                                <strong>Project Leader:</strong>
-                                <span>{{ $grant->projectLeader->name }}</span>
-                            </div>
+    <strong style="color: black;">Project Leader:</strong>
+    <span style="color: black;">{{ $grant->projectLeader->name }}</span>
+</div>
+
 
                             <!-- Display Project Members Excluding Leader -->
                             @if($grant->projectMembers->where('id', '!=', $grant->projectLeader->id)->count() > 0)

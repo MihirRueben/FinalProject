@@ -157,7 +157,7 @@ class AppServiceProvider extends ServiceProvider
     });
 
     Gate::define('delete-project-member', function ($user, ProjectMember $projectMember) {
-        return $user->user_level == 4;  // Admin Executive only
+        return in_array($user->user_level, [4, 2]);
     });
     }
 }
