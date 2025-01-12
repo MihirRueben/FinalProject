@@ -36,6 +36,7 @@
                                     <td class="py-3 px-4">{{ $academician->department }}</td>
                                     <td class="py-3 px-4">{{ $academician->position }}</td>
                                     <td class="py-3 px-4 flex items-center space-x-4">
+                                        <a href="{{ route('academicians.show', $academician->id) }}" class="text-green-500 hover:text-green-600">View</a>
                                         <a href="{{ route('academicians.edit', $academician->id) }}" class="text-blue-500 hover:text-blue-600">Edit</a>
                                         <form action="{{ route('academicians.destroy', $academician->id) }}" method="POST" class="inline-block ml-4">
                                             @csrf

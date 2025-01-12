@@ -28,10 +28,9 @@
 
                             <!-- Display the Project Leader -->
                             <div class="mb-4">
-    <strong style="color: black;">Project Leader:</strong>
-    <span style="color: black;">{{ $grant->projectLeader->name }}</span>
-</div>
-
+                                <strong style="color: black;">Project Leader:</strong>
+                                <span style="color: black;">{{ $grant->projectLeader->name }}</span>
+                            </div>
 
                             <!-- Display Project Members Excluding Leader -->
                             @if($grant->projectMembers->where('id', '!=', $grant->projectLeader->id)->count() > 0)
@@ -46,7 +45,11 @@
                                         @foreach($grant->projectMembers as $member)
                                             @if ($member->id != $grant->projectLeader->id) <!-- Exclude project leader -->
                                                 <tr class="bg-white hover:bg-gray-100">
-                                                    <td class="px-6 py-4 text-sm text-gray-800">{{ $member->name }}</td>
+                                                    <td class="px-6 py-4 text-sm text-gray-800">
+                                                        <a href="{{ route('projectMembers.show', $member->id) }}" class="hover:text-indigo-500">
+                                                            {{ $member->name }}
+                                                        </a>
+                                                    </td>
                                                     <td class="px-6 py-4 text-sm text-gray-800">
                                                         <div class="flex space-x-4">
                                                             <!-- Edit Button -->
